@@ -1,9 +1,13 @@
 import MotionHoc from "./MotionHoc";
 
+
+
 const CalenderComponent = () => {
+ 
   return( 
-    <div class="Team">
+    <div class="Calender">
     <h1>Calender</h1>
+
   </div>
     )
 };

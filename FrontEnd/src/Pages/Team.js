@@ -1,6 +1,12 @@
 import MotionHoc from "./MotionHoc";
+import axios from 'axios';
 
 const TeamComponent = () => {
+
+   function  do_bitch(){
+      const res =  axios.get(`http://localhost:3030`);
+      console.log(res)
+   }
   return( 
   <div className="Team-main">
   <form className="row g-3 needs-validation container" action="" method="POST">
@@ -133,6 +139,7 @@ const TeamComponent = () => {
 
             <div className="col-">
                <button
+                  onClick={do_bitch}
                   className="btn btn-primary col-md-12"
                   type="submit"
                   id="submit"

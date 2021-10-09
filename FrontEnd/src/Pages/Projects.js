@@ -1,9 +1,13 @@
 import MotionHoc from "./MotionHoc";
 
+
 const ProjectsComponent = () => {
+
+  
+
   return( 
-    <div class="Team">
-    <h1>Project</h1>
+    <div class="Project">
+    <h1>projects</h1>
   </div>
     )
 };
