@@ -1,4 +1,5 @@
 import { Route, Switch, useLocation } from "react-router";
+import Login from "./Pages/Login";
 import Sidebar from "./Sidebar";
 import Home from "./Pages/Home";
 import Team from "./Pages/Team";
@@ -32,6 +33,7 @@ function App() {
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route exact path="/" component={Home} />
+            <Route exact path="/Login" component={Login} />
             <Route path="/team" component={Team} />
             <Route path="/calender" component={Calender} />
             <Route path="/documents" component={Documents} />
