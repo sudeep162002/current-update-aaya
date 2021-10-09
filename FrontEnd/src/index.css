@@ -26,12 +26,6 @@ body {
 }
 
 
-
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 * {
@@ -112,4 +106,14 @@ body, html, .App, #root, .auth-wrapper {
 .Team-main{
   display: block;
     width: 1183px;
+}
+
+.inline {
+  display: inline;
+}
+
+.container {
+  margin-left: 10%;
+  padding: 1%;
+  width: 80%;
 }
