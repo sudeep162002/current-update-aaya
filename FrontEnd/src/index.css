@@ -107,3 +107,13 @@ body, html, .App, #root, .auth-wrapper {
   display: block;
     width: 1183px;
 }
+
+.inline {
+  display: inline;
+}
+
+.container {
+  margin-left: 10%;
+  padding: 1%;
+  width: 80%;
+}
