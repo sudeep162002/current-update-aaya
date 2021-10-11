@@ -1,3 +1,4 @@
+//important declairation-------------------------------------------------------------------------------
 const express = require('express');
 const mongoose= require('mongoose');
 const bodyParser= require('body-parser');
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 //app.use(cors());
 
 
-// mongo
+// mongodb connect-------------------------------------------------------------------------------------------
 mongoose.connect(`mongodb+srv://sudeep162002:sudeep%4016@cluster0.r9zwm.mongodb.net/aaya?retryWrites=true&w=majority`,{
   useNewUrlParser: true,
   //useCreatIndex: true,
@@ -23,6 +24,8 @@ mongoose.connect(`mongodb+srv://sudeep162002:sudeep%4016@cluster0.r9zwm.mongodb.
   console.log(`connection sucessful from db`)
 }).catch((error)=>console.log(error))
 
+
+//sending data to mongodb---------------------------------------------------------------------------------------
 app.post('/checque', (req, res) => {
   const reportdb= new report({
     id: req.body.id,
@@ -47,7 +50,7 @@ app.post('/checque', (req, res) => {
 })
 
 
-
+//random checker routs--------------------------------------------------------------------------------------
 
   app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -61,14 +64,7 @@ app.post('/checque', (req, res) => {
   
   })
 
-
-
-
- // app.get('/db', (req, res) => {
- //   connection.query(" ")
- // })
-
-
+//lishtening ports-------------------------------------------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
