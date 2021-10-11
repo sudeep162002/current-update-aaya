@@ -1,48 +1,72 @@
-const express = require('express')
+const express = require('express');
+const mongoose= require('mongoose');
+const bodyParser= require('body-parser');
+const report= require('./db');
+const { request } = require('express');
+//const cors= require('cors');
 
-var mysql = require('mysql')
 const app = express()
 const port = 3030
 
 
-
-//app.get('/checque', (req, res) => {
- //   res.send('checque pass you are great!')
- // })
+app.use(bodyParser.json());
+//app.use(cors());
 
 
-  // my sql connection
+// mongo
+mongoose.connect(`mongodb+srv://sudeep162002:sudeep%4016@cluster0.r9zwm.mongodb.net/aaya?retryWrites=true&w=majority`,{
+  useNewUrlParser: true,
+  //useCreatIndex: true,
+  useUnifiedTopology: true,
+  //useFindAndModify: false
+}).then(()=>{
+  console.log(`connection sucessful from db`)
+}).catch((error)=>console.log(error))
 
-  var connection= mysql.createConnection(
-      {
-          //properties
-          host: 'localhost',
-          user: 'root',
-          password: ' ',
-          database: 'sampelDB'
-      }
-  );
+app.post('/checque', (req, res) => {
+  const reportdb= new report({
+    id: req.body.id,
+    name: req.body.name,
+    surname: req.body.surname
+  })
+  reportdb.save()
+  .then(result=>{
+    console.log(result);
+    res.status(200).json({
+      newReport:result
+    })
+  })
 
-  connection.connect(function(error){
-      if(!!error){
-          console.log('error');
-      }
-      else{
-          console.log('connected');
-      }
-  });
+  .catch(error=>{
+    console.log(error)
+    res.status(500)
+  })
+
+
+
+})
+
 
 
 
   app.get('/', (req, res) => {
     res.send('Hello World!')
-    console.log("connection sucessful")
+    
   })
 
 
-  app.get('/db', (req, res) => {
-    connection.query(" ")
+  app.get('/report', (req, res) => {
+    console.log(req.body)
+    res.send('sucessufully done the request')
+  
   })
+
+
+
+
+ // app.get('/db', (req, res) => {
+ //   connection.query(" ")
+ // })
 
 
 

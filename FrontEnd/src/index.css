@@ -117,3 +117,12 @@ body, html, .App, #root, .auth-wrapper {
   padding: 1%;
   width: 80%;
 }
+
+.Calender-main{
+  display: flex;
+    width: 1183px;
+}
+
+.card{
+  padding: 18px;
+}

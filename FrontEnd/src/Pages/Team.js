@@ -1,12 +1,27 @@
 import MotionHoc from "./MotionHoc";
 import axios from 'axios';
+import { useState } from "react";
 
 const TeamComponent = () => {
 
+
+   const [input,setInput]= useState({
+      
+   })
+
+//http://localhost:3030
    function  do_bitch(){
-      const res =  axios.get(`http://localhost:3030`);
-      console.log(res)
+      axios({
+         method: 'post',
+         url: `http://localhost:3030/checque`,
+         data: {
+           firstName: 'Finn',
+           lastName: 'Williams'
+         }
+       });
    }
+
+   
   return( 
   <div className="Team-main">
   <form className="row g-3 needs-validation container" action="" method="POST">
