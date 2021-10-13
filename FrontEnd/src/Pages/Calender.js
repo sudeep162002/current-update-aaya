@@ -21,13 +21,16 @@ useEffect(()=>{
   .then(function (response) {
     console.log(response.data.reportData);
     console.log(response.data.reportData[1].name);
-   // setSurname()
-   // setAge()
-   // setWeight()
-   // setHeight()
-   // setBlood_sugar_level()
-   // setBlood_pressure()
-   // setBlood_group()
+
+
+    setSurname(response.data.reportData[1].name)
+    setName(response.data.reportData[1].surname)
+    setAge(response.data.reportData[1].age)
+    setWeight(response.data.reportData[1].height)
+    setHeight(response.data.reportData[1].weight)
+    setBlood_sugar_level(response.data.reportData[1].blood_sugar_level)
+    setBlood_pressure(response.data.reportData[1].blood_pressure)
+    setBlood_group(response.data.reportData[1].blood_group)
 
   })
   .catch(function(error) {
@@ -42,22 +45,31 @@ useEffect(()=>{
   return( 
     <div class="Calender-main">
 
+    
+
+        
+
+        
+        <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="public/doctor-re" />
+        <Card.Body>
+          <Card.Title>Your previous health states</Card.Title>
+          <Card.Text>
+            <p>your name- {name} </p>
+            <p>your age- {age} </p>
+            <p>your height- {height} </p>
+            <p>your weight- {weight} </p>
+            <p>your surname- {surname} </p>
+            <p>your Blood_sugar_level- {blood_sugar_level} </p>
+            <p>your Blood_pressure- {blood_pressure} </p>
+            <p>your Blood_group- {blood_group} </p>
+            <p>your surname- {surname} </p>
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
       
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="public/doctor-re" />
-  <Card.Body>
-    <Card.Title>Your previous health states</Card.Title>
-    <Card.Text>
-      <p>your name- {name} </p>
-      <p>your name- {name} </p>
-      <p>your name- {name} </p>
-      <p>your name- {name} </p>
-      <p>your name- {name} </p>
-      <p>your name- {name} </p>
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
+    
 
 
 
