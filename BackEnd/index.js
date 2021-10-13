@@ -4,14 +4,14 @@ const mongoose= require('mongoose');
 const bodyParser= require('body-parser');
 const report= require('./db');
 const { request } = require('express');
-//const cors= require('cors');
+var cors= require('cors');
 
 const app = express()
 const port = 3030
 
 
 app.use(bodyParser.json());
-//app.use(cors());
+app.use(cors());
 
 
 // mongodb connect-------------------------------------------------------------------------------------------
@@ -21,16 +21,22 @@ mongoose.connect(`mongodb+srv://sudeep162002:sudeep%4016@cluster0.r9zwm.mongodb.
   useUnifiedTopology: true,
   //useFindAndModify: false
 }).then(()=>{
-  console.log(`connection sucessful from db`)
+  console.log(`connection sucessful with database you are great sudeep`)
 }).catch((error)=>console.log(error))
 
 
 //sending data to mongodb---------------------------------------------------------------------------------------
-app.post('/checque', (req, res) => {
+app.post('/post_report', (req, res) => {
   const reportdb= new report({
-    id: req.body.id,
+    
     name: req.body.name,
-    surname: req.body.surname
+    surname: req.body.surname,
+    age: req.body.age,
+    height: req.body.height,
+    weight: req.body.weight,
+    blood_group: req.body. blood_group,
+    blood_sugar_level: req.body.blood_sugar_level,
+    blood_pressure: req.body.blood_pressure
   })
   reportdb.save()
   .then(result=>{
@@ -57,10 +63,22 @@ app.post('/checque', (req, res) => {
     
   })
 
+// get all the report present in database----------------------------------------------------------------------
+  app.get('/get_report', (req, res) => {
+    report.find()
+    .then(result=>{
+      console.log(result);
+      res.status(200).json({
+        reportData: result
+      });
+    })
+    .catch(err=>{
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
 
-  app.get('/report', (req, res) => {
-    console.log(req.body)
-    res.send('sucessufully done the request')
+    })
   
   })
 

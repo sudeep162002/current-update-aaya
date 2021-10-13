@@ -6,7 +6,8 @@ const TeamComponent = () => {
 
 
    const [input,setInput]= useState({
-      
+      name: " ",
+      surname: " "
    })
 
 //http://localhost:3030
@@ -15,8 +16,8 @@ const TeamComponent = () => {
          method: 'post',
          url: `http://localhost:3030/checque`,
          data: {
-           firstName: 'Finn',
-           lastName: 'Williams'
+           name: 'Finn',
+           surname: 'Williams'
          }
        });
    }
